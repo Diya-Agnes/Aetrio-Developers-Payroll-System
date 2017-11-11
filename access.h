@@ -6,7 +6,7 @@ class USER
   
   public:
   
-  returnotp()
+  return_otp()
   {
   
 
@@ -23,20 +23,16 @@ class USER
   
   
   randomize();
-  int n,i;
+  int i;
   char otp[7];
  
   
   gotoxy(50,17);
   cout<<"\nYour OTP is:";
   gotoxy(63,17);
-  
-  for(n=0;n<6;n++)
-  {
-  otp[n]=random(10);
-  cout<<otp[n];
-  }
-  waitotp(5);
+    
+    generate_otp();
+    waitotp(5);
   
   gotoxy(50,17);
   for(i=0;i<=20;i++)
@@ -45,12 +41,72 @@ class USER
   gotoxy(40,13);
   cin>>otpnumber;
   
-  if(
+  if(strcmp(otpnumber,generate_otp)==0)
   
-
+    }
+    
+    void generate_otp(char* otp[]="000000")
+    {
+    int n;
+    for(n=0;n<6;n++)
+    {
+    otp[n]=random(10);
+    cout<<otp[n];
+    }
 
   void waitotp(int x)
   {
   for(int i=0;i<x;i++)
   cout<<" ";
   }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
