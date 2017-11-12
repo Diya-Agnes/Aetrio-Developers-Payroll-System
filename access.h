@@ -75,8 +75,9 @@ class USER
   }
   
    
-  void generate_otp( char* otp[])
+  char* generate_otp()
   {
+  char* otp[7];
   for(n=0;n<6;n++)
   {
   otp[n]=random(10);
