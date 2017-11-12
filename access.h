@@ -17,7 +17,7 @@ class USER
   
   public:
   
-  returnotp()
+  return_otp()
   {
   
 
