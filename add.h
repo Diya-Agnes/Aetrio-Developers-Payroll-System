@@ -1,12 +1,13 @@
-void add()
+void add_ademp()
 {
 Employee E;
 
-ofstream n;                                                                                        ;
-n.open("Emp.txt",ios::app|ios::binary);
+ofstream file;                                                                                        ;
+file.open("ademployee.dat",ios::app|ios::binary);
 
-E.input();
-n.write((char*)&E,sizeof(E));
-n.close();
+  E.input();
+  file.write((char*)&E,sizeof(E));
+
+file.close();
 
 }
