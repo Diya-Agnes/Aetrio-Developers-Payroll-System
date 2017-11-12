@@ -1,39 +1,59 @@
 void search_empno()
 {
-ifstream n;
-n.open("Emp.txt",ios::binary|ios::in);
+ifstream file;
+file.open("ademloyee.dat",ios::binary|ios::in);
 Employee E;
 int emp_no;
 cout<<"Enter the Employee number:";
 cin>>emp_no;
-while(n.read((char*)&E,sizeof(E)))
+while(file.read((char*)&E,sizeof(E)))
 {
   if(emp_no==E.retempno())
     {
     s.output();
     break;}}
   
- n.close();
+ file.close();
 }
 
 void search_name()
-{    
-ifstream n;
- n.open("Emp.txt",ios::binary|ios::in);
+{   
+  ifstream n;
+  n.open("Emp.txt",ios::binary|ios::in);
+  Employee E;
+  char emp_name[20];
+  cout<<"Enter the Employee name:";
+  gets(emp_name);
+
+  while(n.read((char*)&E,sizeof(E)))
+ 
+ {
+    if(strcmpi(emp_name,E.retname())==0)
+    
+    {
+      s.output();
+      break;
+    }
+  }n.close();
+}
+void search_dept()
+{ 
+ifstream file;
+file.open("ademloyee.dat",ios::binary|ios::in);
     
  Employee E;
     
  char emp_dept[20];
  cout<<"Enter the Employee department:";
  gets(emp_dept);
- while(n.read((char*)&Esizeof(E)))
+ while(file.read((char*)&Esizeof(E)))
  
  {
    if(strcmpi(emp_dept,E.retdept())==0)
  {
   s.output();
   break;}}
-  n.close();
+  file.close();
   }
   void search()
   {
