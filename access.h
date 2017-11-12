@@ -7,7 +7,13 @@
 #include<process.h>
 #include<math.h>
 
+void align_cntr(char* str)
+{
+	int y=11;
+	gotoxy(40-strlen(str)/2,y);
+	cout<<str;
 
+}
 
 class USER
 {
@@ -17,8 +23,10 @@ class USER
   
   public:
   
-  return_otp()
+  char* return_otp()
   {
+    return otp;
+  }
   
 
   void login()
@@ -42,11 +50,7 @@ class USER
   cout<<"\nYour OTP is:";
   gotoxy(63,17);
   
-  for(n=0;n<6;n++)
-  {
-  otp[n]=random(10);
-  cout<<otp[n];
-  }
+  generate_otp();
   waitotp(5);
   
   gotoxy(50,17);
@@ -56,9 +60,22 @@ class USER
   gotoxy(40,13);
   cin>>otpnumber;
   
-  if(
+  if(strcmp(otpnumber,return_otp())==0)
+  {
+   clrscr();
   
-
+   align_cntr("ACCESS GRANTED.");
+  }
+  
+   
+  void generate_otp( char* otp[])
+  {
+  for(n=0;n<6;n++)
+  {
+  otp[n]=random(10);
+  cout<<otp[n];
+  }
+  }
 
   void waitotp(int x)
   {
