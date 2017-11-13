@@ -9,47 +9,51 @@
 
 
 class Employee
-{
-  int empno;
+{ 
+  
   char name[20];
-  char designation[30];
-  char dept[30];
+  int employeeno;
   int age;
   int dd,mm,yy;
-  long telno;
+  char designation[30];
+  char dept[30];
+  long telephone_no;
   int basic,hra,da,transport;
   int salary;
   
   public:
-  void input();
-  void output();
-  char retname()
+   
+   int get_empno()
+   {
+    return employeeno;
+   }
   
-  {return name;}
-  
-  char retdept()
-  {
+   char get_name()
+   {
+     return name;
+   }
+   
+   char get_dept()
+   {
     return dept;
-  }
+   }
   
-  int retempno()
+   void get_details();
+   void put_details();
+  
+  void calcsalary()
+   {
+   salary=basic+hra+da+transport;
+   return salary;
+   }
+
+  void showreports()
   {
-    return empno;
-  }
-  
-void calsalary()
-{
-  salary=basic+hra+da+transport;
-  return salary;
-}
-
-void showreports()
-{
   cout<<empno<<"\t">>name<<"\t"<<designation<<"\t">>dept<<"\t"<<age<<"\t"<<dd<<"-"<<mm<<"-"<<yy<<"\t"<<telno<<"\t"<<salary<<"\t\n";
-}
-};
+  }
+}E;
 
-void Employee::input()
+void Employee::get_details()
 {
   clrscr();
   cout<<"Enter Employee Details";
@@ -80,22 +84,22 @@ void Employee::input()
   salary=calsalary();
   }
 
-void Employee::output()
+void Employee::put_details()
 {
   clrscr();
-  cout<<" Employee Details ";
+  cout<<"Employee Details ";
   cout<<"Employee Number:"<<empno;
-  cout<<"Employee Name:"<<name;
-  cout<<"Employee Designation:"<<designation;
-  cout<<"Employee Department:"<<dept;
-  cout<<"Employee Age:"<<age;
-  cout<<"Employee Date Of Birth:"<<dd<<"-"<<mm<<"-"<<yy;
-  cout<<"Employee Telephone Number:"<<telno;
+  cout<<"Name:"<<name;
+  cout<<"Designation:"<<designation;
+  cout<<"Department:"<<dept;
+  cout<<"Age:"<<age;
+  cout<<"Date Of Birth:"<<dd<<"-"<<mm<<"-"<<yy;
+  cout<<"Telephone Number:"<<telno;
   cout<<"Basic:"<<basic;
   cout<<"HRA:"<<hra;
   cout<<"DA:"<<da;
   cout<<"Transport Allowance:"<<transport;
-  cout<<"Employee Salary:"<<salary;
+  cout<<"Salary:"<<salary;
 }
 
 
