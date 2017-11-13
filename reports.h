@@ -3,17 +3,20 @@ void reports()
 clrscr();
 Employee E;
 
-ifstream n;
-n.open("Emp.txt",ios::in|ios::binary);
-if(!n)
-{
+ifstream file;
+file.open("ademployee.dat",ios::in|ios::binary);
 
-cout<<"File doesn't exit";
-return;
+  if(!file)
+  {
 
-}
+   cout<<"There is no such required file.";
+   return 0;
+
+   }
+
 cout<<"Empno\t"<<"Name\t"<<"Designation\t"<<"Department\t"<<"Age\t"<<"DOB\t"<<"Telephone\t"<<"Salary\t\n";
-while(n.read((char*)&E,sizeof(E)))
+
+  while(n.read((char*)&E,sizeof(E)))
 
 {
 E.showreports();
