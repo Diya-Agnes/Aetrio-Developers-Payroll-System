@@ -18,7 +18,7 @@ class Employee
   char designation[30];
   char dept[30];
   long telephone_no;
-  int basic,hra,da,transport;
+  int basic,hra,da,transport_a,overtime_a;
   int salary;
   
   public:
@@ -56,77 +56,86 @@ class Employee
 void Employee::get_details()
 {
   clrscr();
-  cout<<"Enter Employee Details";
-  cout<<"Enter Employee Number:";
-  cin>>empno;
-  cout<<"Enter Employee Name:";
+  cout<<"Details of the Employee.";
+  cout<<"Employee Number:";
+  cin>>employeeno;
+  cout<<"Name:";
   gets(name);
-  cout<<"Enter Employee Designation:";
+  cout<<"Designation:";
   gets(designation);
-  cout<<"Enter Employee Department:";
+  cout<<"Department:";
   gets(dept);
-  cout<<"Enter Employee Age:";
+  cout<<"Age:";
   cin>>age;
-  cout<<"Enter Employee Date Of Birth:";
-  cin>>dd>>"-">>mm>>"-">>yy;
-  cout<<"Enter Employee Telephone Number:";
-  cin>>telno;
-  cout<<"Enter Basic:";
+  cout<<"Date Of Birth:";
+  cin>>dd>>" | ">>mm>>" | ">>yy;
+  cout<<"Telephone Number:";
+  cin>>telephoneno;
+  cout<<"Basic salary:";
   cin>>basic;
-  cout<<"Enter HRA:";
+  cout<<"House Rent Allowance:";
   cin>>hra;
-  cout<<"Enter DA:";
+  cout<<"Dearness Allowance:";
   cin>>da;
-  cout<<"Enter Transport Allowance:";
-  cin>>transport;
-  
-  
-  salary=calsalary();
-  }
+  cout<<"Transport Allowance:";
+  cin>>transport_a;
+  cout<<"Overtime Allowance:";
+  cin>>overtime_a;
+ 
+ 
+}
 
 void Employee::put_details()
 {
   clrscr();
-  cout<<"Employee Details ";
+  cout<<"Details of the Employee.";
   cout<<"Employee Number:"<<empno;
   cout<<"Name:"<<name;
   cout<<"Designation:"<<designation;
   cout<<"Department:"<<dept;
   cout<<"Age:"<<age;
-  cout<<"Date Of Birth:"<<dd<<"-"<<mm<<"-"<<yy;
-  cout<<"Telephone Number:"<<telno;
-  cout<<"Basic:"<<basic;
+  cout<<"Date Of Birth:"<<dd<<" | "<<mm<<" | "<<yy;
+  cout<<"Telephone Number:"<<telephoneno;
+  cout<<"Basic salary:"<<basic;
   cout<<"HRA:"<<hra;
   cout<<"DA:"<<da;
-  cout<<"Transport Allowance:"<<transport;
-  cout<<"Salary:"<<salary;
+  cout<<"Transport Allowance:"<<transport_a;
+  cout<<"Overtime allowance:"<<overtime_a;
+  cout<<"Net Salary:"<<calcsalary();
 }
 
 
 void mainmenu()
 {
   clrscr();
-  int option;
+  int opt;
   do{
     gotoxy(36,6);
-    cout<<"MAIN MENU";
+    cout<<"Aetrio Developers Payroll:";
+   
     gotoxy(32,8);
-    cout<<"1.Add New Employee";
+    cout<<"1.Add an Employee";
+   
     gotoxy(32,10);
-    cout<<"2.Search";
+    cout<<"2.Search for an Employee";
+  
     gotoxy(32,12);
-    cout<<"3.Salary";
+    cout<<"3.Salary ";
+    
     gotoxy(32,14);
     cout<<"4.Edit/Modify";
+    
     gotoxy(32,16);
     cout<<"5.Reports";
+    
     gotoxy(32,18);
     cout<<"6.Exit";
-    gotoxy(32,20);
-    cout<<"Please enter your choice:";
-    cin>>option;
     
-    switch(option)
+    gotoxy(32,20);
+    cout<<"Enter your choice here:";
+    cin>>opt;
+    
+    switch(opt)
     {
        
        case 1:add(); 
@@ -146,7 +155,7 @@ void mainmenu()
       
        case 6:exit(0);
       
-       default:cout<<"Invalid option !!";
+       default:cout<<"Your choice is invalid.";
                break;
     
      }
@@ -155,7 +164,7 @@ void mainmenu()
     
      getch();
      clrscr();
-     }while(option!=6)}
+     }while(opt!=6)}
 
  void main()
  {
