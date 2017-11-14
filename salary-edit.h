@@ -2,7 +2,7 @@ void edit_salary()
 {
  clrscr();
  Employee E;
- int changed_sal=0, eno,cur_ptr;
+ int changed_sal=0,eno,cur_ptr;
 
  cout<<"Employee Number to be provided to edit salary:";
  cin>>eno;
@@ -39,6 +39,6 @@ void edit_salary()
  file.close();
  file1.close();
  
- cout<<"ENTER key to continue.";
+ cout<<"ENTER key to continue the program.";
  getch();
 }
