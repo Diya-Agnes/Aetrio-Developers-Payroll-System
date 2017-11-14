@@ -1,24 +1,27 @@
-void reports()
+
+//Report Printing function
+void reports_of_emp()
 {
 clrscr();
 Employee E;
 
-ifstream file;
-file.open("ademployee.dat",ios::in|ios::binary);
+ ifstream file;
+ file.open("ademployee.dat",ios::in|ios::binary);
 
-  if(!file)
-  {
-
-   cout<<"There is no such required file.";
-   return 0;
-
-   }
+  
+          if(!file)
+          {
+          clrscr();
+          align_cntr("There exists no such file. Create a file and proceed");
+          }
 
 cout<<"Empno\t"<<"Name\t"<<"Designation\t"<<"Department\t"<<"Age\t"<<"DOB\t"<<"Telephone\t"<<"Salary\t\n";
 
-  while(n.read((char*)&E,sizeof(E)))
+ while(file.read((char*)&E,sizeof(E)))
+ {
+ E.showreports();
+ }
+  
+file.close();
 
-{
-E.showreports();
-}
 }
