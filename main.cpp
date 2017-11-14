@@ -7,19 +7,27 @@
 #include<process.h>
 #include<math.h>
 
-
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------Employee class -------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+ 
+ 
 class Employee
 { 
+  //Personal details------------
+   char name[20];
+   int age;
+   int dd,mm,yy;
   
-  char name[20];
-  int employeeno;
-  int age;
-  int dd,mm,yy;
-  char designation[30];
-  char dept[30];
-  long telephone_no;
-  int basic,hra,da,transport_a,overtime_a;
-  int salary;
+  //Work details---------------
+   long telephone_no;
+   long employeeno;
+   char designation[30];
+   char dept[30];
+   float basic,hra,da,transport_a,overtime_a,deductions;
+   float salary;
+  
   
   public:
    
@@ -43,69 +51,91 @@ class Employee
   
   void calcsalary()
    {
-   salary=basic+hra+da+transport;
+   salary=basic+hra+da+transport-deductions;
    return salary;
    }
 
-  void showreports()
-  {
-  cout<<empno<<"\t">>name<<"\t"<<designation<<"\t">>dept<<"\t"<<age<<"\t"<<dd<<"-"<<mm<<"-"<<yy<<"\t"<<telno<<"\t"<<salary<<"\t\n";
-  }
 }E;
 
+//Function to input details
 void Employee::get_details()
 {
   clrscr();
-  cout<<"Details of the Employee.";
-  cout<<"Employee Number:";
-  cin>>employeeno;
+  gotoxy(10,
+cout<<"Details of the Employee -Personal";
+  
   cout<<"Name:";
   gets(name);
-  cout<<"Designation:";
-  gets(designation);
-  cout<<"Department:";
-  gets(dept);
+
   cout<<"Age:";
   cin>>age;
+  
   cout<<"Date Of Birth:";
   cin>>dd>>" | ">>mm>>" | ">>yy;
+  
   cout<<"Telephone Number:";
   cin>>telephoneno;
+  
+cout<<"Details of the Employee -Work";  
+         
+  cout<<"Designation:";
+  gets(designation);
+  
+  cout<<"Department:";
+  gets(dept);
+         
+  cout<<"Employee Number:";
+  cin>>employeeno;
+  
   cout<<"Basic salary:";
   cin>>basic;
+  
   cout<<"House Rent Allowance:";
   cin>>hra;
+  
   cout<<"Dearness Allowance:";
   cin>>da;
+  
   cout<<"Transport Allowance:";
   cin>>transport_a;
+  
   cout<<"Overtime Allowance:";
   cin>>overtime_a;
- 
+  
+  cout<<"Deductions:";
+  cin>>deductions;
  
 }
 
+//Function to output details------------------------------------------------------------------------------------------------------------
 void Employee::put_details()
 {
   clrscr();
-  cout<<"Details of the Employee.";
-  cout<<"Employee Number:"<<empno;
-  cout<<"Name:"<<name;
-  cout<<"Designation:"<<designation;
-  cout<<"Department:"<<dept;
-  cout<<"Age:"<<age;
-  cout<<"Date Of Birth:"<<dd<<" | "<<mm<<" | "<<yy;
-  cout<<"Telephone Number:"<<telephoneno;
-  cout<<"Basic salary:"<<basic;
-  cout<<"HRA:"<<hra;
-  cout<<"DA:"<<da;
-  cout<<"Transport Allowance:"<<transport_a;
-  cout<<"Overtime allowance:"<<overtime_a;
-  cout<<"Net Salary:"<<calcsalary();
+  cout<<"Details of the Employee-Personal";
+   
+    
+    cout<<"Name:"<<name;
+    cout<<"Age:"<<age;
+    cout<<"Date Of Birth:"<<dd<<" | "<<mm<<" | "<<yy;
+    cout<<"Telephone Number:"<<telephoneno;
+  
+  cout<<"Details of the Employee-Work";
+  
+    cout<<"Employee Number:"<<empno;
+    cout<<"Designation:"<<designation;
+    cout<<"Department:"<<dept;
+    cout<<"Basic salary:"<<basic;
+    cout<<"HRA:"<<hra;
+    cout<<"DA:"<<da;
+    cout<<"Transport Allowance:"<<transport_a;
+    cout<<"Overtime allowance:"<<overtime_a;
+    cout<<"Deductions:"<<deductions;
+  
+    cout<<"Salary(Gross):"<<calcsalary();
 }
 
-
-void mainmenu()
+//Menu Function-------------------------------------------------------------------------------------------------------------------------
+void list_of_operations()
 {
   clrscr();
   int opt;
@@ -120,16 +150,16 @@ void mainmenu()
     cout<<"2.Search for an Employee";
   
     gotoxy(32,12);
-    cout<<"3.Salary ";
+    cout<<"3.Salary Slip Generator";
     
     gotoxy(32,14);
-    cout<<"4.Edit/Modify";
+    cout<<"4.Modify the records";
     
     gotoxy(32,16);
-    cout<<"5.Reports";
+    cout<<"5.Print Reports of each Employee";
     
     gotoxy(32,18);
-    cout<<"6.Exit";
+    cout<<"6.Exit the program";
     
     gotoxy(32,20);
     cout<<"Enter your choice here:";
@@ -144,13 +174,13 @@ void mainmenu()
        case 2:search(); 
               break;
         
-       case 3:salary();   
+       case 3:salary_slip_generator();   
               break;
       
-       case 4:edit();   
+       case 4:edit_salary();   
               break;
       
-       case 5:reports();    
+       case 5:reports_of_emp();    
               break;
       
        case 6:exit(0);
@@ -160,23 +190,15 @@ void mainmenu()
     
      }
     
-    cout<<"Press any key to continue.....\n";
-    
-     getch();
-     clrscr();
-     }while(opt!=6)}
+    gotoxy(55,21);
+    cout<<"ENTER key to continue";
+    getch();
+     
+    clrscr();
+     
+  }while(opt!=6)}
 
- void main()
- {
-   getch();
-   clrscr();
-   gotoxy(32,12);
-   cout<<"Loading,please wait.....";
-   clrscr();
-   login();
-   clrscr;
-   mainmenu();
- }
+
  
      
         
