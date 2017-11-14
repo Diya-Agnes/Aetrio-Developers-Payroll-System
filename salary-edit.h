@@ -1,27 +1,44 @@
-void SalaryEdit()
+void edit_salary()
 {
  clrscr();
- int S=0, Eno;
  Employee E;
- cout<<"Enter the employee number for whom the salary is to be edited:";
- cin>>Eno;
- fstream file1;
- file1.open("Payroll.dat", ios::binary|ios::in|ios::app);
- while(!file1.eof())
+ int changed_sal=0, eno,cur_ptr;
+
+ cout<<"Employee Number to be provided to edit salary:";
+ cin>>eno;
+ 
+ ifstream file;
+ file.open("ademployee.dat", ios::binary|ios::in);
+ 
+     while(!file.eof())
+     {
+       ofstream file1;
+       file1.open("ademployee.dat", ios::binary|ios::out|ios::app);
+      
+       file.read((char*)&E,sizeof(E));
+     
+       if(E.employeeno==eno)
+       {
+       cout<<"Revised value of salary)";
+       cur_ptr=file.tellg();
+       file1.seekp(cur_ptr-sizeof(E),ios::beg);
+       file1.write((char*)&E,sizeof(E));
+        
+       changed_sal=1;
+       break;
+       }
+      
+    }
+ 
+ if(changed_sal==0)
  {
-  file1.read((char*)&E, sizeof(E));
-  if(E.eno==Eno)
-  {
-   cout<<"Enter the new salary details:";
-   E. Salary();
-   file1.write((char*)&E, sizeof(E));
-   S=1;
-   break;
-  }
+ clrscr();
+ align_cntr("The Employee's record does not exist.");
  }
- if(S==0)
-  cout<<"Employee not found!";
+ 
+ file.close();
  file1.close();
- cout<<"Press any key to continue. ";
+ 
+ cout<<"ENTER key to continue.";
  getch();
 }
