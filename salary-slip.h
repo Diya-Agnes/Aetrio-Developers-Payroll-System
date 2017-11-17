@@ -1,6 +1,16 @@
 void time()
-{
- 
+ {
+		time_t rawtime=time(0);			//gets the unix timestamp. ie, no. of seconds since 1 Jan 1970
+		struct tm *now;
+		now=localtime(&rawtime);		//converts rawtime to local time in the form of struct tm
+		date[0]=now->tm_mday;
+		date[1]=now->tm_mon;
+		date[2]=(now->tm_year)-100;
+	}
+	void dispDate()
+	{
+		cout<<date[0]<<'/'<<date[1]<<'/'<<date[2];
+	}
 
 //printing salary slip function
 void salary_slip_generator()
